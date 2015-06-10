@@ -1,6 +1,6 @@
-name: Solar Theme
-url: http://example.org
-description: A stylish blog using the Solarized color palette
+name: dog food lid
+url: http://youcancarve.it
+description: ramblings of an infosec jerk.
 
 permalink: /:year/:month/:day/:title/
 paginate: 10

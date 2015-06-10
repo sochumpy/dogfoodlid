@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "hello"
+date:   2015-06-10 15:00:00
+categories: update
+---
+
+some sort of blog on various things i find in my travels learning 2 hack (by hacking 2 learn).
