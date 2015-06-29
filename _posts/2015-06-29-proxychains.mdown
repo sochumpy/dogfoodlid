@@ -2,25 +2,25 @@
 layout: post
 title:  "SSH port forwarding and proxychains"
 date:   2015-06-29 15:30:00
-categories: ssh
+categories: update
 ---
 
-appliances such as video conferenceing gear, printers, and the like usually go overlooked on peoples networks (and in some cases, even end up on the internet). shell access can sometimes be left open for maintenance providers to login and fix things or check usages in the case of printers. Often times with [default logins](https://default-password.info) still set.<br />
-
+appliances such as video conferenceing gear, printers, and the like usually go overlooked on peoples networks (and in some cases, even end up on the internet). shell access can sometimes be left open for maintenance providers to login and fix things or check usages in the case of printers. Often times with default [logins](https://default-password.info) still set.<br />
+<br />
 the shells provided by these devices are usually farely locked down providing some avenues for annoyance and information leakage. what if you're dropped into a shell with no helpful tools at all and you want to get further into the network?<br />
-
+<br />
 the following command will connect verbosly (-v) and bind (-D) the ssh tunnel to port 9050 for port fowarding making SSH act as a SOCKS server.<br />
-
+<br />
 <code>ssh -v -D 9050 user@vulnerable.com</code><br />
-
+<br />
 now that we have an active connection, we now can either pass browser connections through the port forwarding in your browsers proxy settings. Pointing it to the following over SOCKS5:<br />
-
+<br />
 <code>localhost:9050</code><br />
-
-but what if i want to use something like nmap? luckily kali linux has proxychains installed. For mac, i used [proxychains-ng](https://github.com/rofl0r/proxychains-ng)<br />
-
+<br />
+but what if i want to use something like nmap? luckily kali linux has proxychains installed. for mac, i used [proxychains-ng](https://github.com/rofl0r/proxychains-ng)<br />
+<br />
 <code>$ proxychains nmap -sT -p TCP:389 192.168.1.0/24</code><br />
-
+<br />
 <code>$ proxychains msfconsole</code><br />
-
+<br />
 proxychains passes all application layer networking for the command to port 9050 which is forwarded to the host you're connected to. it works well but take note it wont work with UDP connections which is why the nmap command shown is specifying TCP. A lot of things work with proxychains but i've noticed it can fail if you try piping things with it.
