@@ -1,9 +1,9 @@
 name: dog food lid
 url: http://youcancarve.it
 description: ramblings of an infosec jerk.
-
 permalink: /:year/:month/:day/:title/
 paginate: 10
 highlighter: pygments
 
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
